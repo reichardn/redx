@@ -1,4 +1,17 @@
-<h4>Deals</h4>
+<h2>Deals</h2>
+
+<h4>Add New Project:</h4>
+<form name="form" ng-submit="ctrl.processForm()">
+    
+    <label>Name</label>
+    <input name="name" required="required" ng-model="ctrl.newDealName" minlength="3"/>
+
+    <button type="submit" class="btn btn-success btn-lg btn-block">
+      <span class="glyphicon glyphicon-flash"></span> Submit!
+    </button>
+</form>
+
+<h3> {{ctrl.newDealName }}</h3>
 
 <ul>
   <li ng-repeat="deal in ctrl.index">

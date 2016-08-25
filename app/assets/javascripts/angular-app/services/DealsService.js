@@ -9,6 +9,11 @@ function DealsService($http) {
       return $http.get(url);
     }
 
+    this.newDeal = function(data) {
+      return $http.post('/deals', data);
+    }
+
+
 }
  
 angular
