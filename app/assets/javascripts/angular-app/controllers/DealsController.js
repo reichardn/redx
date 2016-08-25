@@ -1,7 +1,6 @@
-function DealsController() {
+function DealsController(deals, DealsService) {
     var ctrl = this;
-
-    ctrl.name = 'TESTING';
+    ctrl.index = deals.data;
 
 }
  
