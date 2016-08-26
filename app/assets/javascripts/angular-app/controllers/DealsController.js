@@ -15,7 +15,6 @@ function DealsController(deals, DealsService) {
       var data = {
         deal: {name: ctrl.newDealName, category: ctrl.newDealCategory},
       };
-      console.log(data);
       DealsService.newDeal(data).then(ctrl.addDeal, ctrl.error);
     }
 

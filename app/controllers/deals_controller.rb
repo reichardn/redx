@@ -12,6 +12,7 @@ class DealsController < ApplicationController
 
   def create
     deal = Deal.create(deal_params)
+    deal.build_docs
     render json: deal
   end
 
