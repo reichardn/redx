@@ -1,5 +1,13 @@
 <h3>{{ ctrl.data.name }} </h3>
 
+<h4>Incomplete Items:</h4>
 <ul>
-  <li ng-repeat="doc in ctrl.data.documents">{{ doc }}</li>
+  <li ng-repeat="doc in ctrl.open">{{ doc.name }}</li>
 </ul>
+
+
+<h4>Complete Items:</h4>
+<ul>
+  <li ng-repeat="doc in ctrl.complete">{{ doc.name }}</li>
+</ul>
+
