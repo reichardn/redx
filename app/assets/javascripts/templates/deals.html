@@ -5,14 +5,17 @@
     
     <label>Name</label>
     <input name="name" required="required" ng-model="ctrl.newDealName" minlength="3"/>
+    <select required="required" ng-model="ctrl.newDealCategory" 
+            ng-options="item.id as item.name for item in ctrl.categories">
+    </select>
 
     <button type="submit" class="btn btn-success btn-lg btn-block">
-      <span class="glyphicon glyphicon-flash"></span> Submit!
+      <span class="glyphicon glyphicon-flash"></span> Add
     </button>
 </form>
 
 <ul>
   <li ng-repeat="deal in ctrl.index">
-    <a href="" ui-sref="deal({id: deal.id})">{{ deal.name}}</a>
+    <a href="" ui-sref="deal({id: deal.id})">{{ deal.name}} ({{ deal.category }})</a>
   </li>
 </ul>
