@@ -1,9 +1,11 @@
 <h2>{{ ctrl.data.name}} for {{ ctrl.data.deal.name }}</h2>
 
-<form>
+<form  ng-submit="ctrl.processForm()">
   <label for="contents">Content:</label><br>
   <textarea id="content" ng-model="ctrl.newContent" rows="10" cols="50"></textarea><br>
+  <button type="submit">Save</button>
 </form>
+
 <button ng-click="ctrl.reset()">Reset Content</button>
-<button>Save</button>
+<button ui-sref="deal({id: ctrl.dealID})">Go Back</button>
 

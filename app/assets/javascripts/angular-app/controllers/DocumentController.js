@@ -1,13 +1,30 @@
-function DocumentController() {
+function DocumentController(doc, DocumentsService) {
     
     var ctrl = this;
-    ctrl.data = {name: "fake name", content: "fake content", deal: {id: 99, name: 'fake deal'}};
+    ctrl.data = doc.data;
+    ctrl.dealID = ctrl.data.deal.id
 
-    this.reset = function() {
+    ctrl.reset = function() {
       ctrl.newContent = ctrl.data.content;
     }
 
-    this.reset();
+    ctrl.processForm = function() {
+      var data = {
+        document: {content: ctrl.newContent},
+      };
+      DocumentsService.update(ctrl.data.id, data).then(ctrl.updateContents, ctrl.error);
+    }
+
+    ctrl.updateContents = function(resp) {
+      ctrl.data = resp.data; 
+      ctrl.reset();
+    }
+
+    ctrl.error = function(resp) {
+      alert("Deal NOT updated");
+    }
+
+    ctrl.reset();
 
 }
  

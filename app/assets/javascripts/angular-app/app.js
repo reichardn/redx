@@ -23,10 +23,25 @@ angular
                     }
                 }
             })
+            .state('deal.newDoc', {
+                url: '/add',
+                templateUrl: 'new_document.html' //,
+                // controller: 'NewDocumentController as ctrl',
+                // resolve: {
+                //     doc: function ($stateParams, DocumentsService) {
+                //         return DocumentsService.getDoc($stateParams.id);
+                //     }
+                // }
+            })
             .state('document', {
                 url: '/document/:id',
                 templateUrl: 'document.html',
-                controller: 'DocumentController as ctrl'
+                controller: 'DocumentController as ctrl',
+                resolve: {
+                    doc: function ($stateParams, DocumentsService) {
+                        return DocumentsService.getDoc($stateParams.id);
+                    }
+                }
             });
 
 
