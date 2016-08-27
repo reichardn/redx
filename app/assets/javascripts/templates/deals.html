@@ -14,6 +14,10 @@
     </button>
 </form>
 
+<div class="document-details">
+  <div ui-view></div>
+</div>
+
 <ul>
   <li ng-repeat="deal in ctrl.index">
     <a href="" ui-sref="deal({id: deal.id})">{{ deal.name}} ({{ deal.category }})</a>

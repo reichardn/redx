@@ -2,12 +2,12 @@
 
 <h4>Incomplete Items:</h4>
 <ul>
-  <li ng-repeat="doc in ctrl.open">{{ doc.name }}</li>
+  <li ng-repeat="doc in ctrl.open"><a href="" ui-sref="document({id: doc.id})">{{ doc.name }}</a></li>
 </ul>
 
 
 <h4>Complete Items:</h4>
 <ul>
-  <li ng-repeat="doc in ctrl.complete">{{ doc.name }}</li>
+  <li ng-repeat="doc in ctrl.complete"><a href="" ui-sref="document({id: doc.id})">{{ doc.name }}</a></li>
 </ul>
 

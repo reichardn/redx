@@ -12,9 +12,7 @@ angular
                         return DealsService.getIndex();
                     }
                 }
-            });
-
-        $stateProvider
+            })
             .state('deal', {
                 url: '/deal/:id',
                 templateUrl: 'deal.html',
@@ -24,7 +22,14 @@ angular
                         return DealsService.getDeal($stateParams.id);
                     }
                 }
+            })
+            .state('document', {
+                url: '/document/:id',
+                templateUrl: 'document.html',
+                controller: 'DocumentController as ctrl'
             });
+
+
     })
     .config([
       "$httpProvider", function($httpProvider) {
