@@ -1,9 +1,10 @@
-<h4>Add New Project:</h4>
+<h4>Add New Document:</h4>
 <form name="form" ng-submit="ctrl.processForm()">
     
     <label>Name</label>
     <input name="name" required="required" ng-model="ctrl.name" minlength="3"/>
 
     <button type="submit">Add</button>
-    
+
 </form>
+<button ui-sref="deal({id: dealID})">Hide</button>

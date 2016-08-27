@@ -1,17 +1,18 @@
-function DealController(deal, DealsService) {
+function DealController($scope, deal, DealsService) {
     
     var ctrl = this;
     ctrl.data = deal.data;
-    ctrl.open = [];
-    ctrl.finished = [];
+    $scope.dealID = ctrl.data.id;
+    $scope.open = [];
+    $scope.finished = [];
 
     this.splitDocs = function() {
       var docs = ctrl.data.documents
       for (var i = 0; i < docs.length; i++) {
         if (docs[i].complete) {
-          ctrl.finished.push(docs[i])
+          $scope.finished.push(docs[i])
         } else {
-          ctrl.open.push(docs[i])
+          $scope.open.push(docs[i])
         }
       }
     };
