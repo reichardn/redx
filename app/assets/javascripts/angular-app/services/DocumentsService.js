@@ -14,6 +14,11 @@ function DocumentsService($http) {
       return $http.post('/documents', data);
     }
 
+    this.index = function(id, name) {
+      var data = {id: id, name: name};
+      return $http.get('/documents', data);
+    }
+
 
 }
  

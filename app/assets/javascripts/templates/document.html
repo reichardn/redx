@@ -1,5 +1,8 @@
 <h2>{{ ctrl.data.name}} for {{ ctrl.data.deal.name }}</h2>
 
+<button ui-sref="document.import({id: ctrl.data.id})">Import From Precedent</button>
+<div ui-view></div>
+
 <form  ng-submit="ctrl.processForm()">
   <label for="contents">Content:</label><br>
   <textarea id="content" ng-model="ctrl.newContent" rows="10" cols="50"></textarea><br>

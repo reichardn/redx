@@ -1,8 +1,10 @@
-function DocumentController(doc, DocumentsService) {
+function DocumentController(doc, DocumentsService, $scope) {
     
     var ctrl = this;
     ctrl.data = doc.data;
     ctrl.dealID = ctrl.data.deal.id
+
+    $scope.name = ctrl.data.name
 
     ctrl.reset = function() {
       ctrl.newContent = ctrl.data.content;

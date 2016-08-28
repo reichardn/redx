@@ -1,4 +1,4 @@
-function DealsController(deals, DealsService) {
+function DealsController(deals, DealsService, $filter) {
 
     var ctrl = this;
     ctrl.index = deals.data;
@@ -26,6 +26,14 @@ function DealsController(deals, DealsService) {
     ctrl.error = function(resp) {
       alert("Deal NOT created");
     }
+
+    this.search = '';
+ 
+    this.refilter = function () {
+        this.filteredList = $filter('filter')(this.index, this.search);
+    };
+ 
+    this.refilter();
 
 }
  

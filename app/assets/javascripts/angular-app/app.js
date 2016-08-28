@@ -37,8 +37,17 @@ angular
                         return DocumentsService.getDoc($stateParams.id);
                     }
                 }
+            })
+            .state('document.import', {
+                url: '/import',
+                templateUrl: 'import.html',
+                controller: 'ImportDocumentController as ctrl',
+                resolve: {
+                    doc: function ($stateParams, DocumentsService, $scope) {
+                        return DocumentsService.index($stateParams.id, $scope.name);
+                    }
+                }
             });
-
 
     })
     .config([
