@@ -2,17 +2,17 @@ function DocumentController(doc, DocumentsService, $scope) {
     
     var ctrl = this;
     ctrl.data = doc.data;
-    ctrl.dealID = ctrl.data.deal.id
 
+    $scope.dealID = ctrl.data.deal.id
     $scope.name = ctrl.data.name
 
     ctrl.reset = function() {
-      ctrl.newContent = ctrl.data.content;
+      $scope.newContent = ctrl.data.content;
     }
 
     ctrl.processForm = function() {
       var data = {
-        document: {content: ctrl.newContent},
+        document: {content: $scope.newContent},
       };
       DocumentsService.update(ctrl.data.id, data).then(ctrl.updateContents, ctrl.error);
     }

@@ -1,1 +1,7 @@
-<h1>Precedents for: {{ name }}</h1>
+<h4>Precedents for {{ name }}:</h4>
+
+<ul>
+  <li ng-repeat="doc in ctrl.index">
+    {{ doc.deal.name }} <button ng-click="ctrl.import(ctrl.index.indexOf(doc))">Import</button>
+  </li>
+</ul>

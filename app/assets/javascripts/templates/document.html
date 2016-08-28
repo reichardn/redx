@@ -5,10 +5,12 @@
 
 <form  ng-submit="ctrl.processForm()">
   <label for="contents">Content:</label><br>
-  <textarea id="content" ng-model="ctrl.newContent" rows="10" cols="50"></textarea><br>
+  <textarea id="content" ng-model="newContent" rows="10" cols="50"></textarea><br>
   <button type="submit">Save</button>
 </form>
 
+<h3>{{ newContent }}</h3>
+
 <button ng-click="ctrl.reset()">Reset Content</button>
-<button ui-sref="deal({id: ctrl.dealID})">Go Back</button>
+<button ui-sref="deal({id: dealID})">Go Back</button>
 

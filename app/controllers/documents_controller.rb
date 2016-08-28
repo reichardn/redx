@@ -1,5 +1,10 @@
 class DocumentsController < ApplicationController
 
+  def index
+    documents = Document.where(name: params[:name]).where.not('content' => nil, 'deal_id' => params[:deal_id])
+    render json: documents
+  end
+
   def create
     document = Document.create(document_params)
     render json: document

@@ -14,9 +14,9 @@ function DocumentsService($http) {
       return $http.post('/documents', data);
     }
 
-    this.index = function(id, name) {
-      var data = {id: id, name: name};
-      return $http.get('/documents', data);
+    this.index = function(deal_id, name) {
+      var params = {deal_id: deal_id, name: name};
+      return $http.get('/documents', {params: params});
     }
 
 
