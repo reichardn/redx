@@ -5,14 +5,15 @@ function DocumentController(doc, DocumentsService, $scope) {
 
     $scope.dealID = ctrl.data.deal.id
     $scope.name = ctrl.data.name
+    $scope.newContent = {}
 
     ctrl.reset = function() {
-      $scope.newContent = ctrl.data.content;
+      $scope.newContent.content = ctrl.data.content;
     }
 
     ctrl.processForm = function() {
       var data = {
-        document: {content: $scope.newContent},
+        document: {content: $scope.newContent.content},
       };
       DocumentsService.update(ctrl.data.id, data).then(ctrl.updateContents, ctrl.error);
     }

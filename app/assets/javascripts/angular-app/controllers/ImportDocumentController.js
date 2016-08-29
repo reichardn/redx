@@ -3,14 +3,15 @@ function ImportDocumentController($scope, DocumentsService, $stateParams, $state
     var ctrl = this;
 
     ctrl.import = function(i) {
+      $scope.newContent.content = ctrl.index[i].content;
       var data = {
-        document: {content: ctrl.index[i].content},
+        document: {content:$scope.newContent.content},
       };
       DocumentsService.update($stateParams.id, data).then(ctrl.back);
     }
 
     ctrl.back = function() {
-      $state.go('document({id: $stateParams.id})')
+      $state.go('^')
     }
 
     ctrl.getDocs = function () {
