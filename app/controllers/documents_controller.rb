@@ -21,6 +21,12 @@ class DocumentsController < ApplicationController
     render json: document
   end
 
+  def destroy
+    document = Document.find(params[:id])
+    document.destroy
+    head :no_content
+  end
+
   private 
 
   def document_params

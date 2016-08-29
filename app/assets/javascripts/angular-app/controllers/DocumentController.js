@@ -1,4 +1,4 @@
-function DocumentController(doc, DocumentsService, $scope) {
+function DocumentController(doc, DocumentsService, $scope, $state) {
     
     var ctrl = this;
     ctrl.data = doc.data;
@@ -25,6 +25,15 @@ function DocumentController(doc, DocumentsService, $scope) {
 
     ctrl.error = function(resp) {
       alert("Deal NOT updated");
+    }
+
+    ctrl.delete = function() {
+      DocumentsService.delete(ctrl.data.id).then(ctrl.deleteSuccess)
+    }
+
+    ctrl.deleteSuccess = function() {
+      console.log ($scope.dealID)
+      $state.go('deal', {id: $scope.dealID});
     }
 
     ctrl.reset();

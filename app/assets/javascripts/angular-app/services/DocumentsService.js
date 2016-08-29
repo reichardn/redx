@@ -19,6 +19,11 @@ function DocumentsService($http) {
       return $http.get('/documents', {params: params});
     }
 
+    this.delete = function(id) {
+      var url = "/documents/" + id;
+      return $http.delete(url);
+    }
+
 
 }
  
