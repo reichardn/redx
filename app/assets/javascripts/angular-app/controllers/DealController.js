@@ -1,4 +1,4 @@
-function DealController($scope, deal, DealsService) {
+function DealController($scope, deal, DealsService, $state) {
     
     var ctrl = this;
     ctrl.data = deal.data;
@@ -6,7 +6,15 @@ function DealController($scope, deal, DealsService) {
     $scope.open = [];
     $scope.finished = [];
 
-    this.splitDocs = function() {
+    ctrl.delete = function() {
+      DealsService.delete($scope.dealID).then(ctrl.success)
+    }
+
+    ctrl.success = function() {
+      $state.go('deals');
+    }
+
+    ctrl.splitDocs = function() {
       var docs = ctrl.data.documents
       for (var i = 0; i < docs.length; i++) {
         if (docs[i].complete) {
@@ -17,7 +25,7 @@ function DealController($scope, deal, DealsService) {
       }
     };
 
-    this.splitDocs();
+    ctrl.splitDocs();
 }
  
 angular

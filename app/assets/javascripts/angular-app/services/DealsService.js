@@ -13,6 +13,10 @@ function DealsService($http) {
       return $http.post('/deals', data);
     }
 
+    this.delete = function(id) {
+      var url = "/deals/" + id;
+      return $http.delete(url);
+    }
 
 }
  

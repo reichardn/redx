@@ -1,7 +1,12 @@
-<h4>Precedents for {{ name }}:</h4>
+<div ng-if="ctrl.index.length > 0">
+  <h4>Precedents for {{ name }}:</h4>
+  <ul>
+    <li ng-repeat="doc in ctrl.index">
+      {{ doc.deal.name }} <button ng-click="ctrl.import(ctrl.index.indexOf(doc))">Import</button>
+    </li>
+  </ul>
+</div>
 
-<ul>
-  <li ng-repeat="doc in ctrl.index">
-    {{ doc.deal.name }} <button ng-click="ctrl.import(ctrl.index.indexOf(doc))">Import</button>
-  </li>
-</ul>
+<div ng-if="ctrl.index.length <= 0">
+  <h4>Sorry, there are no precedents for this document</h4>
+</div>

@@ -19,6 +19,7 @@ class DealsController < ApplicationController
   def destroy
     deal = Deal.find(params[:id])
     deal.destroy
+    head :no_content
   end
 
   private 
