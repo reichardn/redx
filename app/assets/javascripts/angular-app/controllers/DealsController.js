@@ -21,19 +21,20 @@ function DealsController(deals, DealsService, $filter) {
     ctrl.addDeal = function(resp) {
       ctrl.newDealName = ""; 
       ctrl.index.push(resp.data);
+      ctrl.refilter();
     }
 
     ctrl.error = function(resp) {
       alert("Deal NOT created");
     }
 
-    this.search = '';
+    ctrl.search = '';
  
-    this.refilter = function () {
-        this.filteredList = $filter('filter')(this.index, this.search);
+    ctrl.refilter = function () {
+        ctrl.filteredList = $filter('filter')(ctrl.index, ctrl.search);
     };
  
-    this.refilter();
+    ctrl.refilter();
 
 }
  
