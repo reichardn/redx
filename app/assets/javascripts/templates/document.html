@@ -1,4 +1,8 @@
 <h2>{{ ctrl.data.name}} for {{ ctrl.data.deal.name }}</h2>
+<h3>Status: 
+  <span ng-if="ctrl.data.complete">COMPLETE</span>
+  <span ng-if="!(ctrl.data.complete)">INCOMPLETE</span>
+</h3>
 
 <button ui-sref="document.import({id: ctrl.data.id})">Import From Precedent</button>
 <div ui-view></div>
@@ -10,6 +14,7 @@
 </form>
 
 <button ng-click="ctrl.reset()">Reset Content</button>
+<button ng-click="ctrl.toggleStatus()">Change Status</button>
 <button ng-click="ctrl.delete()">Delete Document</button>
 <button ui-sref="deal({id: dealID})">Go Back</button>
 

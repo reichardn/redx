@@ -30,7 +30,7 @@ class DocumentsController < ApplicationController
   private 
 
   def document_params
-    params.require(:document).permit(:name, :content, :deal_id)
+    params.require(:document).permit(:name, :content, :deal_id, :complete)
   end
 
 end

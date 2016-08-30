@@ -11,6 +11,12 @@ function DocumentController(doc, DocumentsService, $scope, $state) {
       $scope.newContent.content = ctrl.data.content;
     }
 
+    ctrl.toggleStatus = function() {
+      var newStatus = !(ctrl.data.complete)
+      var data = {complete: newStatus};
+      DocumentsService.update(ctrl.data.id, data).then(function(r) {ctrl.data.complete = newStatus});
+    }
+
     ctrl.processForm = function() {
       var data = {
         document: {content: $scope.newContent.content},

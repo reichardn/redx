@@ -4,7 +4,7 @@ function DealController($scope, deal, DealsService, $state) {
     ctrl.data = deal.data;
     $scope.dealID = ctrl.data.id;
     $scope.open = [];
-    $scope.finished = [];
+    $scope.complete = [];
 
     ctrl.delete = function() {
       DealsService.delete($scope.dealID).then(ctrl.success)
@@ -18,7 +18,7 @@ function DealController($scope, deal, DealsService, $state) {
       var docs = ctrl.data.documents
       for (var i = 0; i < docs.length; i++) {
         if (docs[i].complete) {
-          $scope.finished.push(docs[i])
+          $scope.complete.push(docs[i])
         } else {
           $scope.open.push(docs[i])
         }
